@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and mandatory="true" name="schemaX">
+				<or mandatory="true" name="colByClass">
+					<and mandatory="true" name="colA">
+						<and mandatory="true" name="tA">
+							<and name="tA_l0">
+								<alt mandatory="true" name="r1_bLines">
+									<feature mandatory="true" name="tA_emb*_tB"/>
+									<feature mandatory="true" name="tA_ref*_tB"/>
+								</alt>
+							</and>
+						</and>
+					</and>
+					<and mandatory="true" name="colB">
+						<and mandatory="true" name="tB">
+							<and name="tB_l0">
+								<alt mandatory="true" name="r1_ag">
+									<feature mandatory="true" name="tB_emb_tA"/>
+									<feature mandatory="true" name="tB_ref_tA"/>
+								</alt>
+							</and>
+						</and>
+					</and>
+				</or>
+				<and name="colByAssoc">
+					<and mandatory="true" name="refsGroups">
+						<and mandatory="true" name="2refs">
+							<feature mandatory="true" name="colAB"/>
+						</and>
+					</and>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<conj>
+						<var>tA</var>
+						<not>
+							<var>tA_l0</var>
+						</not>
+					</conj>
+					<disj>
+						<var>colAB</var>
+						<var>r1_ag</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tB</var>
+						<not>
+							<var>tB_l0</var>
+						</not>
+					</conj>
+					<disj>
+						<var>colAB</var>
+						<var>r1_bLines</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tA_ref*_tB</var>
+					<var>colB</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_ref_tA</var>
+					<var>colA</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tA_ref*_tB</var>
+					<not>
+						<var>tB_ref_tA</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tA_ref*_tB</var>
+					<not>
+						<var>tB_emb_tA</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_ref_tA</var>
+					<not>
+						<var>tA_emb*_tB</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>colAB</var>
+					<conj>
+						<var>colA</var>
+						<conj>
+							<not>
+								<var>r1_bLines</var>
+							</not>
+							<conj>
+								<var>colB</var>
+								<not>
+									<var>r1_ag</var>
+								</not>
+							</conj>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
