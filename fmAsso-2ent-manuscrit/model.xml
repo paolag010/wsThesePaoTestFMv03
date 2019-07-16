@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and mandatory="true" name="schemaX">
+				<or mandatory="true" name="colByClass">
+					<and mandatory="true" name="colAgencies">
+						<and mandatory="true" name="tAgency">
+							<and name="tAgency_l0_ext">
+								<alt mandatory="true" name="r1_bLines">
+									<feature mandatory="true" name="tAgency_EMBn_tBusiness"/>
+									<feature mandatory="true" name="tAgency_REFn_tBusiness"/>
+								</alt>
+							</and>
+						</and>
+					</and>
+					<and mandatory="true" name="colBusiness">
+						<and mandatory="true" name="tBusiness">
+							<and name="tBusiness_l0_ext">
+								<alt mandatory="true" name="r1_ag">
+									<feature mandatory="true" name="tBusiness_EMB_tAgency"/>
+									<feature mandatory="true" name="tBusiness_REF_tAgency"/>
+								</alt>
+							</and>
+						</and>
+					</and>
+				</or>
+				<and name="colByAssoc">
+					<and mandatory="true" name="colAgencyBusiness">
+						<feature mandatory="true" name="reftAgency"/>
+						<feature mandatory="true" name="reftBusiness"/>
+					</and>
+				</and>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<conj>
+						<var>tAgency</var>
+						<not>
+							<var>r1_bLines</var>
+						</not>
+					</conj>
+					<disj>
+						<var>colAgencyBusiness</var>
+						<var>r1_ag</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tBusiness</var>
+						<not>
+							<var>r1_ag</var>
+						</not>
+					</conj>
+					<disj>
+						<var>colAgencyBusiness</var>
+						<var>r1_bLines</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tAgency_REFn_tBusiness</var>
+					<var>colBusiness</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tBusiness_REF_tAgency</var>
+					<var>colAgencies</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tAgency_REFn_tBusiness</var>
+					<not>
+						<var>tBusiness_EMB_tAgency</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tBusiness_REF_tAgency</var>
+					<not>
+						<var>tAgency_EMBn_tBusiness</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tAgency_REFn_tBusiness</var>
+					<not>
+						<var>tBusiness_REF_tAgency</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>colAgencyBusiness</var>
+					<conj>
+						<var>colAgencies</var>
+						<conj>
+							<not>
+								<var>r1_bLines</var>
+							</not>
+							<conj>
+								<var>colBusiness</var>
+								<not>
+									<var>r1_ag</var>
+								</not>
+							</conj>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>

@@ -53,19 +53,10 @@
 						</and>
 					</and>
 				</or>
-				<alt name="colByAssoc">
-					<and mandatory="true" name="2classes">
-						<or mandatory="true" name="2refs">
-							<feature mandatory="true" name="colAB"/>
-							<feature mandatory="true" name="colBC"/>
-						</or>
-					</and>
-					<and mandatory="true" name="3classes">
-						<and mandatory="true" name="3refs">
-							<feature mandatory="true" name="colABC"/>
-						</and>
-					</and>
-				</alt>
+				<or name="colByAssoc">
+					<feature mandatory="true" name="colAB"/>
+					<feature mandatory="true" name="colBC"/>
+				</or>
 			</and>
 		</struct>
 		<constraints>
@@ -102,33 +93,6 @@
 								<not>
 									<var>r2_b</var>
 								</not>
-							</conj>
-						</conj>
-					</conj>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<var>colABC</var>
-					<conj>
-						<var>tA</var>
-						<conj>
-							<not>
-								<var>tA_l0_ext</var>
-							</not>
-							<conj>
-								<var>tB</var>
-								<conj>
-									<not>
-										<var>tB_l0_ext</var>
-									</not>
-									<conj>
-										<var>tC</var>
-										<not>
-											<var>tC_l0_ext</var>
-										</not>
-									</conj>
-								</conj>
 							</conj>
 						</conj>
 					</conj>
@@ -241,10 +205,7 @@
 						<var>r1_bs</var>
 						<disj>
 							<var>r1_a_1</var>
-							<disj>
-								<var>colAB</var>
-								<var>colABC</var>
-							</disj>
+							<var>colAB</var>
 						</disj>
 					</disj>
 				</imp>
@@ -261,10 +222,7 @@
 						<var>r2_b</var>
 						<disj>
 							<var>r2_cs_1</var>
-							<disj>
-								<var>colBC</var>
-								<var>colABC</var>
-							</disj>
+							<var>colBC</var>
 						</disj>
 					</disj>
 				</imp>
@@ -281,10 +239,7 @@
 						<var>r1_a</var>
 						<disj>
 							<var>r1_a_1</var>
-							<disj>
-								<var>colAB</var>
-								<var>colABC</var>
-							</disj>
+							<var>colAB</var>
 						</disj>
 					</disj>
 				</imp>
@@ -301,10 +256,7 @@
 						<var>r2_cs</var>
 						<disj>
 							<var>r2_cs_1</var>
-							<disj>
-								<var>colBC</var>
-								<var>colABC</var>
-							</disj>
+							<var>colBC</var>
 						</disj>
 					</disj>
 				</imp>
@@ -318,11 +270,8 @@
 						</not>
 					</conj>
 					<disj>
-						<var>r2_cs</var>
-						<disj>
-							<var>r2_b</var>
-							<var>colBC</var>
-						</disj>
+						<var>colB</var>
+						<var>colC</var>
 					</disj>
 				</imp>
 			</rule>
@@ -335,11 +284,8 @@
 						</not>
 					</conj>
 					<disj>
-						<var>r1_a</var>
-						<disj>
-							<var>r1_bs</var>
-							<var>colAB</var>
-						</disj>
+						<var>colB</var>
+						<var>colA</var>
 					</disj>
 				</imp>
 			</rule>
