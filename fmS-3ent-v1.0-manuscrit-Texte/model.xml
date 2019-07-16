@@ -8,15 +8,15 @@
 						<and mandatory="true" name="tA">
 							<and name="tA_l0_ext">
 								<alt mandatory="true" name="r1_bs">
-									<and mandatory="true" name="tA_emb*_tB">
+									<and mandatory="true" name="tA_EMBn_tB">
 										<and name="tB_l1_ext_1">
 											<alt mandatory="true" name="r2_cs_1">
-												<feature mandatory="true" name="tB_emb*_tC_1"/>
-												<feature mandatory="true" name="tB_ref*_tC_1"/>
+												<feature mandatory="true" name="tB_EMBn_tC_1"/>
+												<feature mandatory="true" name="tB_REFn_tC_1"/>
 											</alt>
 										</and>
 									</and>
-									<feature mandatory="true" name="tA_ref*_tB"/>
+									<feature mandatory="true" name="tA_REFn_tB"/>
 								</alt>
 							</and>
 						</and>
@@ -25,12 +25,12 @@
 						<and mandatory="true" name="tB">
 							<or name="tB_l0_ext">
 								<alt mandatory="true" name="r1_a">
-									<feature mandatory="true" name="tB_emb_tA"/>
-									<feature mandatory="true" name="tB_ref_tA"/>
+									<feature mandatory="true" name="tB_EMB_tA"/>
+									<feature mandatory="true" name="tB_REF_tA"/>
 								</alt>
 								<alt mandatory="true" name="r2_cs">
-									<feature mandatory="true" name="tB_emb*_tC"/>
-									<feature mandatory="true" name="tB_ref*_tC"/>
+									<feature mandatory="true" name="tB_EMBn_tC"/>
+									<feature mandatory="true" name="tB_REFn_tC"/>
 								</alt>
 							</or>
 						</and>
@@ -39,15 +39,15 @@
 						<and mandatory="true" name="tC">
 							<and name="tC_l0_ext">
 								<alt mandatory="true" name="r2_b">
-									<and mandatory="true" name="tC_emb_tB">
+									<and mandatory="true" name="tC_EMB_tB">
 										<and name="tB_l1_ext_2">
 											<alt mandatory="true" name="r1_a_1">
-												<feature mandatory="true" name="tB_emb_tA_1"/>
-												<feature mandatory="true" name="tB_ref_tA_1"/>
+												<feature mandatory="true" name="tB_EMB_tA_1"/>
+												<feature mandatory="true" name="tB_REF_tA_1"/>
 											</alt>
 										</and>
 									</and>
-									<feature mandatory="true" name="tC_ref_tB"/>
+									<feature mandatory="true" name="tC_REF_tB"/>
 								</alt>
 							</and>
 						</and>
@@ -100,96 +100,96 @@
 			</rule>
 			<rule>
 				<imp>
-					<var>tA_ref*_tB</var>
+					<var>tA_REFn_tB</var>
 					<var>colB</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tB_ref_tA</var>
+					<var>tB_REF_tA</var>
 					<var>colA</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tB_ref*_tC</var>
+					<var>tB_REFn_tC</var>
 					<var>colC</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tC_ref_tB</var>
+					<var>tC_REF_tB</var>
 					<var>colB</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tB_ref*_tC_1</var>
+					<var>tB_REFn_tC_1</var>
 					<var>colC</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tB_ref_tA_1</var>
+					<var>tB_REF_tA_1</var>
 					<var>colA</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tA_ref*_tB</var>
+					<var>tA_REFn_tB</var>
 					<not>
-						<var>tB_ref_tA</var>
+						<var>tB_REF_tA</var>
 					</not>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tB_ref*_tC</var>
+					<var>tB_REFn_tC</var>
 					<not>
-						<var>tC_ref_tB</var>
+						<var>tC_REF_tB</var>
 					</not>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tA_ref*_tB</var>
+					<var>tA_REFn_tB</var>
 					<not>
-						<var>tB_emb_tA</var>
+						<var>tB_EMB_tA</var>
 					</not>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
 					<disj>
-						<var>tB_ref_tA</var>
-						<var>tB_ref_tA_1</var>
+						<var>tB_REF_tA</var>
+						<var>tB_REF_tA_1</var>
 					</disj>
 					<not>
-						<var>tA_emb*_tB</var>
+						<var>tA_EMBn_tB</var>
 					</not>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tC_ref_tB</var>
+					<var>tC_REF_tB</var>
 					<not>
-						<var>tB_emb*_tC</var>
+						<var>tB_EMBn_tC</var>
 					</not>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tB_ref*_tC</var>
+					<var>tB_REFn_tC</var>
 					<not>
-						<var>tC_emb_tB</var>
+						<var>tC_EMB_tB</var>
 					</not>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>tB_ref*_tC_1</var>
+					<var>tB_REFn_tC_1</var>
 					<not>
-						<var>tC_emb_tB</var>
+						<var>tC_EMB_tB</var>
 					</not>
 				</imp>
 			</rule>
@@ -264,7 +264,7 @@
 			<rule>
 				<imp>
 					<conj>
-						<var>tA_emb*_tB</var>
+						<var>tA_EMBn_tB</var>
 						<not>
 							<var>r2_cs_1</var>
 						</not>
@@ -278,7 +278,7 @@
 			<rule>
 				<imp>
 					<conj>
-						<var>tC_emb_tB</var>
+						<var>tC_EMB_tB</var>
 						<not>
 							<var>r1_a_1</var>
 						</not>
