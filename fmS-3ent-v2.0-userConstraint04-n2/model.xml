@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel>
+		<properties/>
+		<struct>
+			<and mandatory="true" name="schemaX">
+				<or mandatory="true" name="colByClass">
+					<and mandatory="true" name="colA">
+						<and mandatory="true" name="tA">
+							<and name="tA_l0_ext">
+								<alt mandatory="true" name="r1_bs">
+									<and mandatory="true" name="tA_EMBn_tB">
+										<and name="tB_l1_ext_1">
+											<alt mandatory="true" name="r2_cs_1">
+												<feature mandatory="true" name="tB_EMBn_tC_1"/>
+												<feature mandatory="true" name="tB_REFn_tC_1"/>
+											</alt>
+										</and>
+									</and>
+									<feature mandatory="true" name="tA_REFn_tB"/>
+								</alt>
+							</and>
+						</and>
+					</and>
+					<and mandatory="true" name="colB">
+						<and mandatory="true" name="tB">
+							<or name="tB_l0_ext">
+								<alt mandatory="true" name="r1_a">
+									<feature mandatory="true" name="tB_EMB_tA"/>
+									<feature mandatory="true" name="tB_REF_tA"/>
+								</alt>
+								<alt mandatory="true" name="r2_cs">
+									<feature mandatory="true" name="tB_EMBn_tC"/>
+									<feature mandatory="true" name="tB_REFn_tC"/>
+								</alt>
+							</or>
+						</and>
+					</and>
+					<and mandatory="true" name="colC">
+						<and mandatory="true" name="tC">
+							<and name="tC_l0_ext">
+								<alt mandatory="true" name="r2_b">
+									<and mandatory="true" name="tC_EMB_tB">
+										<and name="tB_l1_ext_2">
+											<alt mandatory="true" name="r1_a_1">
+												<feature mandatory="true" name="tB_EMB_tA_1"/>
+												<feature mandatory="true" name="tB_REF_tA_1"/>
+											</alt>
+										</and>
+									</and>
+									<feature mandatory="true" name="tC_REF_tB"/>
+								</alt>
+							</and>
+						</and>
+					</and>
+				</or>
+				<or name="colByAssoc">
+					<feature mandatory="true" name="colAB"/>
+					<feature mandatory="true" name="colBC"/>
+				</or>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>colAB</var>
+					<conj>
+						<var>colA</var>
+						<conj>
+							<not>
+								<var>r1_bs</var>
+							</not>
+							<conj>
+								<var>colB</var>
+								<not>
+									<var>r1_a</var>
+								</not>
+							</conj>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>colBC</var>
+					<conj>
+						<var>colB</var>
+						<conj>
+							<not>
+								<var>r2_cs</var>
+							</not>
+							<conj>
+								<var>colC</var>
+								<not>
+									<var>r2_b</var>
+								</not>
+							</conj>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tA_REFn_tB</var>
+					<var>colB</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_REF_tA</var>
+					<var>colA</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_REFn_tC</var>
+					<var>colC</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tC_REF_tB</var>
+					<var>colB</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_REFn_tC_1</var>
+					<var>colC</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_REF_tA_1</var>
+					<var>colA</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tA_REFn_tB</var>
+					<not>
+						<var>tB_REF_tA</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_REFn_tC</var>
+					<not>
+						<var>tC_REF_tB</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tA_REFn_tB</var>
+					<not>
+						<var>tB_EMB_tA</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<disj>
+						<var>tB_REF_tA</var>
+						<var>tB_REF_tA_1</var>
+					</disj>
+					<not>
+						<var>tA_EMBn_tB</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tC_REF_tB</var>
+					<not>
+						<var>tB_EMBn_tC</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_REFn_tC</var>
+					<not>
+						<var>tC_EMB_tB</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_REFn_tC_1</var>
+					<not>
+						<var>tC_EMB_tB</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tB</var>
+						<not>
+							<var>r1_a</var>
+						</not>
+					</conj>
+					<disj>
+						<var>r1_bs</var>
+						<disj>
+							<var>r1_a_1</var>
+							<var>colAB</var>
+						</disj>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tB</var>
+						<not>
+							<var>r2_cs</var>
+						</not>
+					</conj>
+					<disj>
+						<var>r2_b</var>
+						<disj>
+							<var>r2_cs_1</var>
+							<var>colBC</var>
+						</disj>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tA</var>
+						<not>
+							<var>r1_bs</var>
+						</not>
+					</conj>
+					<disj>
+						<var>r1_a</var>
+						<disj>
+							<var>r1_a_1</var>
+							<var>colAB</var>
+						</disj>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tC</var>
+						<not>
+							<var>r2_b</var>
+						</not>
+					</conj>
+					<disj>
+						<var>r2_cs</var>
+						<disj>
+							<var>r2_cs_1</var>
+							<var>colBC</var>
+						</disj>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tA_EMBn_tB</var>
+						<not>
+							<var>r2_cs_1</var>
+						</not>
+					</conj>
+					<disj>
+						<var>r2_cs</var>
+						<var>colC</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tC_EMB_tB</var>
+						<not>
+							<var>r1_a_1</var>
+						</not>
+					</conj>
+					<disj>
+						<var>r1_a</var>
+						<var>colA</var>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>schemaX</var>
+					<not>
+						<var>tA_EMBn_tB</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>schemaX</var>
+					<not>
+						<var>tB_EMB_tA</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>schemaX</var>
+					<not>
+						<var>tB_EMBn_tC</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>schemaX</var>
+					<not>
+						<var>tC_EMB_tB</var>
+					</not>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
