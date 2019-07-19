@@ -290,36 +290,6 @@
 				</imp>
 			</rule>
 			<rule>
-				<conj>
-					<not>
-						<var>tA_REFn_tB</var>
-					</not>
-					<not>
-						<var>tB_REFn_tC_1</var>
-					</not>
-				</conj>
-			</rule>
-			<rule>
-				<not>
-					<var>tB_REF_tA_1</var>
-				</not>
-			</rule>
-			<rule>
-				<not>
-					<var>tB_REFn_tC</var>
-				</not>
-			</rule>
-			<rule>
-				<not>
-					<var>colAB</var>
-				</not>
-			</rule>
-			<rule>
-				<not>
-					<var>colBC</var>
-				</not>
-			</rule>
-			<rule>
 				<imp>
 					<var>tB_EMBn_tC_1</var>
 					<conj>
@@ -329,70 +299,6 @@
 						<not>
 							<var>colC</var>
 						</not>
-					</conj>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<conj>
-						<var>tB_EMB_tA</var>
-						<var>tB_EMBn_tC</var>
-					</conj>
-					<conj>
-						<not>
-							<var>colA</var>
-						</not>
-						<not>
-							<var>colC</var>
-						</not>
-					</conj>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<var>tB_EMB_tA_1</var>
-					<disj>
-						<conj>
-							<not>
-								<var>colB</var>
-							</not>
-							<not>
-								<var>colA</var>
-							</not>
-						</conj>
-						<conj>
-							<var>colA</var>
-							<conj>
-								<not>
-									<var>tA_l0_ext</var>
-								</not>
-								<conj>
-									<var>tB_EMB_tA</var>
-									<not>
-										<var>r2_cs</var>
-									</not>
-								</conj>
-							</conj>
-						</conj>
-					</disj>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<conj>
-						<var>tB_REF_tA</var>
-						<var>tB_EMBn_tC</var>
-					</conj>
-					<conj>
-						<var>colA</var>
-						<conj>
-							<not>
-								<var>tA_l0_ext</var>
-							</not>
-							<not>
-								<var>colC</var>
-							</not>
-						</conj>
 					</conj>
 				</imp>
 			</rule>
@@ -435,6 +341,100 @@
 						</conj>
 					</disj>
 				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tB_EMB_tA</var>
+						<var>tB_EMBn_tC</var>
+					</conj>
+					<conj>
+						<not>
+							<var>colA</var>
+						</not>
+						<not>
+							<var>colC</var>
+						</not>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
+						<var>tB_REF_tA</var>
+						<var>tB_EMBn_tC</var>
+					</conj>
+					<conj>
+						<var>colA</var>
+						<conj>
+							<not>
+								<var>tA_l0_ext</var>
+							</not>
+							<not>
+								<var>colC</var>
+							</not>
+						</conj>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>tB_EMB_tA_1</var>
+					<disj>
+						<conj>
+							<not>
+								<var>colB</var>
+							</not>
+							<not>
+								<var>colA</var>
+							</not>
+						</conj>
+						<conj>
+							<var>colA</var>
+							<conj>
+								<not>
+									<var>tA_l0_ext</var>
+								</not>
+								<conj>
+									<var>tB_EMB_tA</var>
+									<not>
+										<var>r2_cs</var>
+									</not>
+								</conj>
+							</conj>
+						</conj>
+					</disj>
+				</imp>
+			</rule>
+			<rule>
+				<conj>
+					<not>
+						<var>tA_REFn_tB</var>
+					</not>
+					<not>
+						<var>tB_REFn_tC_1</var>
+					</not>
+				</conj>
+			</rule>
+			<rule>
+				<not>
+					<var>tB_REF_tA_1</var>
+				</not>
+			</rule>
+			<rule>
+				<not>
+					<var>tB_REFn_tC</var>
+				</not>
+			</rule>
+			<rule>
+				<not>
+					<var>colAB</var>
+				</not>
+			</rule>
+			<rule>
+				<not>
+					<var>colBC</var>
+				</not>
 			</rule>
 			<rule>
 				<imp>

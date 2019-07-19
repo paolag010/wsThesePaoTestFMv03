@@ -380,6 +380,22 @@
 			<rule>
 				<imp>
 					<conj>
+						<var>tA_EMBn_tB</var>
+						<not>
+							<var>tB_l1_ext_1</var>
+						</not>
+					</conj>
+					<conj>
+						<var>tC_REF_tB</var>
+						<not>
+							<var>tB_l0_ext</var>
+						</not>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<conj>
 						<var>tB_REF_tA</var>
 						<var>tB_EMBn_tC</var>
 					</conj>
@@ -393,22 +409,6 @@
 								<var>colC</var>
 							</not>
 						</conj>
-					</conj>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<conj>
-						<var>tA_EMBn_tB</var>
-						<not>
-							<var>tB_l1_ext_1</var>
-						</not>
-					</conj>
-					<conj>
-						<var>tC_REF_tB</var>
-						<not>
-							<var>tB_l0_ext</var>
-						</not>
 					</conj>
 				</imp>
 			</rule>
